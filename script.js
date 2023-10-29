@@ -82,3 +82,66 @@ sesta(4,2)
     document.querySelector(".septinta").innerHTML = `7. ${string}`
  }
  septinta('abc')
+
+// 8 Parašykite funkciją su dviem parametrais. Pirmasis yra tekstas, 
+//  įterpiamas į h tagą, o antrasis tago numeris (1-6). Rašydami šią funkciją 
+//  remkitės antrame uždavinyje parašyta funkcija.
+function astunta(string, n) {
+    document.querySelector(".astunta").innerHTML = `<h${n}>8. ${string}</h${n}>`
+}
+
+astunta('abc',5)
+
+// 9 Aprašykite funkciją kuri priimtų vieną parametrą "number" bei 
+// patikrintų ar duotas skaičius yra pirminis. Atgal grąžinkite teigiamą 
+// arba neigiamą (boolean) atsakymą.
+
+function devinta(number) {
+
+    if(number <= 1 ) {
+        return document.querySelector('.devinta').innerHTML = `9. false`;
+    }
+
+    for (let i = 2; i < number-1; i++) {
+        if(number % i === 0){
+            return document.querySelector('.devinta').innerHTML = `9. false`;
+        }
+        
+    }
+    return document.querySelector('.devinta').innerHTML = `9. true`;
+}
+devinta(6449)
+
+// 10 Sugeneruokite 100 elementų masyvą kurio reikšmės atsitiktiniai 
+// skaičiai nuo 997 iki 15991.
+
+function desimta (from, to) {
+    let array = [];
+    for (let i = 0; i < 100; i++) {
+        array.push(rand(from, to))
+        
+    }
+    document.querySelector('.desimta').innerHTML = `10. ${array.length} skaiciu: ${array}`
+
+    // 11. Palikti pirminius skaicius, kurie didesni uz 5000.
+
+    let arrayCopy = [...array];
+
+    for (let i = 0; i < array.length; i++) {
+        if(array[i] < 5000) {
+            arrayCopy.splice(arrayCopy.indexOf(array[i]), 1)
+
+        } else
+            for (let j = 2; j < array[i]-1; j++) {
+                if(array[i] % j === 0){
+                    arrayCopy.splice(arrayCopy.indexOf(array[i]), 1)
+                    break
+                }
+            }
+}
+
+document.querySelector('.vienuolikta').innerHTML = `11. ${arrayCopy}`
+}
+
+desimta(997,15991)
+
